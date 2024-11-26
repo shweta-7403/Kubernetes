@@ -27,7 +27,7 @@ Before getting started, ensure you have:
 
 1. **Clone the Repository** 🛠️  
    ```bash  
-   git clone https://github.com/<your-username>/kubernetes.git  
+   git clone https://github.com/shweta-7403/kubernetes.git  
    cd kubernetes  
    ```  
 
