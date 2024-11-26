@@ -35,10 +35,6 @@ Before getting started, ensure you have:
    ```bash  
    kubectl apply -f manifests/  
    ```  
-
-3. **Learn and Experiment** 🔍  
-   - Check out the **docs/** folder for detailed guides.  
-
 ## 🤝 Contribution  
 
 We love contributions! 💡 Here's how you can help:  
