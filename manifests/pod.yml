@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: mypod
+   labels:
+       env: test
+spec:
+   containers:
+      - name: container1
+        image: rockylinux:9
+        env:
+           - name: ENV_NAME
+             value: shweta
+        command: ["/bin/bash", "-c" , "while true; do echo hello shweta; sleep 30; done"]
+      - name: container2
+        image: nginx
