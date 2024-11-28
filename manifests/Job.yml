@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+   name: myjob
+spec:
+  completions: 1
+  activeDeadlineSeconds: 60
+  template:
+    spec:
+       containers:
+          - name: mypod
+            image: ubuntu
+            command: ["/bin/bash" , "-c" ,"while true; do echo hello devops; sleep 10; done"]
+       restartPolicy: Never
