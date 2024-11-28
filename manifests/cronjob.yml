@@ -1,0 +1,16 @@
+apiVersion: batch/apps
+kind: CronJob
+metadata:
+   name: mycronjob
+spec:
+   schedule: "* * * * *"
+   jobTemplate:
+     spec:
+       activeDeadlineSeconds: 40
+       template:
+          spec:
+             containers:
+               - name: mypod
+                 image: rockylinux:9
+                 command: ["/bin/bash" , "-c" , "while true; do echo hello; sleep 40; done"]
+             restartPolicy: Never
