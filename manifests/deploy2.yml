@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploy
+  labels:
+    test: class1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      test: class1
+    template:
+      metadata:
+         labels:
+            test: class1
+    spec:
+      containers:
+        - name: mypod
+          image: centos
+          command: ["/bin/bash", "-c" , "while true; do echo hello devops; sleep 30; done"]
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+         maxSurge: 1
+         maxUnavailable: 2
