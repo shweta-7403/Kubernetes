@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metdata:
+   name: mypod
+spec:
+   containers:
+     - name: c1
+       image: ubuntu
+       commnd: ["sleep" , "infinity"]
+       volumeMounts:
+          - name: devops
+            mountPath: /tmp/file
+   volumes:
+       - name: devops
+       hostPath:
+           path: /tmp/file
+           type: DirectoryOrCreate
