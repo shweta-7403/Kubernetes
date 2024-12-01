@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: mypod
+   labels:
+      env: ops
+spec:
+   containers:
+     - name: c1
+       image: ubuntu
+       command: ["sleep","infinity"]
+       volumeMounts:
+               - name: devops
+                 MountPath: /tmp/devops/
+     - name: c2
+       image: rockylinux: 9
+       command: ["sleep" , "infinity"]
+       volumeMounts:
+               - name: devops
+                 mountPath: /tmp/cloud
+   volumes:
+      - name: devops
+        emptyDir: {}
