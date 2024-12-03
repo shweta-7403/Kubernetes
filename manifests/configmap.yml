@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: pod
+spec:
+   containers:
+      - name: mycont
+        image: ubuntu
+        command: ["sleep" ,"infinity"]
+        volumePath:
+           - name: myvol
+             mountPaths: "/tmp/file/"
+   volumes:
+       - name: myvol
+         configMap:
+          - name: mymap
+            items:
+             - key: config.conf
+               path: config.conf  
+
+# create configmap 
+# kubectl create configmap <name> --from-file=<file-name>
+# example: kubectl create configmap myconfig --from-file=config.conf
+
+
