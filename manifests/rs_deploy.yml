@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deploy
+metadata:
+   name: mydeploy
+   labels:
+      env: test
+spec:
+   relicas: 2
+   selector:
+      matchLabels:
+         env: test
+   template:
+      metadata:
+         labels:
+            env: test
+      spec:
+         containers:
+           - name: pod
+             image: nginx
+             resource:
+                requests:
+                   cpu: "500m"
+                   memory: "300Mi"
+                limits:
+                   cpu: "2"
+                   memory: "3Gi"
+
