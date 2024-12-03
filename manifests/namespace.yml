@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: pod
+    labels:
+       env: test
+spec:
+    containers: 
+     - name: cont1
+       image: nginx
+
+# create namespace: kubectl create namespace <namespace>
+# set namespace-context: kubectl config set-context --current --namespace <namespace>
+# view which namespace set : kubectl config view --minify | grep namespace:
+# list namespace: kubectl get po -n <namespace>
