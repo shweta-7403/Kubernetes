@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+   name: daemonpod
+   labels:
+       class: test
+spec:
+   selector:
+     matchLabels:
+        class: test
+   template:
+     metadata:
+        labels:
+           class: test
+     spec:
+        containers:
+           - name: c1
+             image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2 
+
