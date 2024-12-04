@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: tolerationpod
+   labels:
+      env: test
+spec:
+   toleration:
+    - key: "dedicate"
+      operator: "Equal"
+      value: "special"
+      effect: "NoSchedule" # NoExecute,PreferNoSchedule
+   containers:
+    - name: c1
+      image: nginx
+
+
+#Apply taint in node
+# kubectl taint no <no-name> key=value:effect
+# kubectl taint no minikube dedicate=special:NoSchedule,NoExecute,PreferNoSchedule
+#Remove taint in node
+# kubectl taint no minikube dedicate:NoSchedule-
+# Describe taint using -Kubectl describe no minikube | grep -i toleration
+
