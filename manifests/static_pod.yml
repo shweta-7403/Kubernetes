@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: static-pod
+   namespace: kube-system
+   labels:
+       env: test
+spec:
+   containers:
+      - name: c1
+        image: nginx
+        ports:
+           - containerPort: 80
+
+#minikube ssh
+#cd /etc/kubernetes/manifests/static.yml
+#kubelet automatic create static pod with node name and then expose if you want to check this pod are running successfully
