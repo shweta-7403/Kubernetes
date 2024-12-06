@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: mypod
+    labels:
+       env: test
+spec:
+    containers:
+       - name: cont
+         image: custom-image
+         imagePullPolicy: Never
+         env:
+          - name: WORDPRESS_VERSION
+            value: "latest"
+          - name: WORDPRESS_USER
+            value: "ubuntu"
